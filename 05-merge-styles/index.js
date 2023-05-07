@@ -5,7 +5,7 @@ const path = require('path');
 const input = path.join(__dirname, 'styles');
 const output = path.join(__dirname, 'project-dist');
 
-async function copyDir(inputFolder, outputFolder) {
+async function mergeStyles(inputFolder, outputFolder) {
   const outputFile = path.join(outputFolder, 'bundle.css');
   await fsPromises.rm(outputFile, { recursive: true, force: true });
   const output = fs.createWriteStream(outputFile);
@@ -20,4 +20,4 @@ async function copyDir(inputFolder, outputFolder) {
   });
 }
 
-copyDir(input, output);
+mergeStyles(input, output);
